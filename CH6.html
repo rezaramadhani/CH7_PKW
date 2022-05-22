@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum 6</title>
+</head>
+<body>
+    <center><h1>KOTAK SARAN</h1></center>
+    <form action="#" class="container">
+        <tr><td><label for="nama">Nama</label></tr></td>
+        <input type="text" name="nama" id="nama"/>
+        <br />
+        <br><tr><td><label for="Age">Umur</label></td></tr>
+        <input type="text" name="Age" id="Age"/>
+        <br />
+        <br><label for="Gender">Jenis Kelamin</label>
+        <input type="radio" name="Gender" id="Gender" value="laki-laki"/> Laki-laki
+        <input type="radio" name="Gender" id="Gender" value="perempuan"/> Perempuan
+        <br />
+        <br><label for="nilai">Nilai Kepuasan (1-5)</label>
+        
+        <input type="text" name="nilai" id="nilai"/>
+        <br />
+        <br><label for="Mengetahui">Darimana Anda mengetahui produk kami</label>
+        <br>
+        <br><input type="checkbox" name="Mengetahui" id="Mengetahui" value="Medsos" /> Sosial Media
+        <br>
+        <br><input type="checkbox" name="Mengetahui" id="Mengetahui" value="teman" /> Teman
+        <br>
+        <br><input type="checkbox" name="Mengetahui" id="Mengetahui" value="internet" /> Internet
+        <br>
+        <br />
+        <label for="penggunaan">Apakah Anda menggunakan layanan kami?</label>
+        <br><input type="radio" name="penggunaan" id="penggunaan" value="ya"/> Ya
+        <input type="radio" name="penggunaan" id="penggunaan" value="tidak"/> Tidak
+        <br />
+        <br><tr><td><label for="kritiksaran">Kritik dan Saran</label></tr></td>
+        <br><textarea name="kritiksaran" id="kritiksaran" cols="50" rows="4"></textarea>
+        <br />
+        <input type="button" value="Kirim" onclick="tampilData()"/>
+    </form>
+</body>
+<script>
+    function tampilData(){
+        var nama = document.getElementById("nama").value;
+        var Age = document.getElementById("Age").value;
+        var Gender = document.querySelector("input[name=Gender]:checked").value;
+        var nilai = document.getElementById("nilai").value;
+        var Mengetahui = document.getElementsByName("Mengetahui");
+        var daftarPengetahuan = ''
+        
+        for(var Mengetahui2 of Mengetahui){
+            if(Mengetahui2.checked){
+                daftarPengetahuan += ', '+ Mengetahui2.value
+            }
+        }
+
+        daftarPengetahuan = daftarPengetahuan.substring(1)
+
+        var penggunaan = document.querySelector("input[name=penggunaan]:checked").value;
+        var kritiksaran = document.getElementById("kritiksaran").value;
+
+        alert(
+            "Nama   : " + nama +
+            "\nUmur : "  + Gender +
+            "\nJenis Kelamin  : " + Gender +
+            "\nNilai  : " + nilai +
+            "\nInfo Layanan      : " + daftarPengetahuan +
+            "\nMenggunakan Layanan : " + penggunaan +
+            "\nKritik dan Saran  : " + kritiksaran     );
+    }
+</script>
+</html>
